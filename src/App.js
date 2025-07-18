@@ -90,20 +90,23 @@ function Verification() {
     { img: '/images/upload.png', title: 'Upload', path: null },
     { img: '/images/input.png', title: 'Input Nomor Izin', path: null }
   ];
-
   return (
     <section className="verification" id="metode-verifikasi">
       <div className="container">
         <h2>Metode Verifikasi</h2>
         <div className="methods">
           {methods.map(m => (
-            <MethodCard
-              key={m.title}
-              img={m.img}
-              title={m.title}
-              onClick={() => m.path && navigate(m.path)}
-              clickable={!!m.path}
-            />
+            m.path ? (
+              <Link key={m.title} to={m.path} className="method-card clickable">
+                <img src={m.img} alt={m.title} />
+                <h3>{m.title}</h3>
+              </Link>
+            ) : (
+              <div key={m.title} className="method-card">
+                <img src={m.img} alt={m.title} />
+                <h3>{m.title}</h3>
+              </div>
+            )
           ))}
         </div>
       </div>
