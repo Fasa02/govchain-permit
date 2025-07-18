@@ -24,17 +24,17 @@ const Header = () => (
   </header>
 );
 
-const Hero = () => (
-  <section className="hero">
-    <div className="hero-text">
+const utama = () => (
+  <section className="utama">
+    <div className="utama-text">
       <h1>Perizinan UMKM Transparan, Akuntabel Dengan Blockchain</h1>
       <p>Ucapkan selamat tinggal pada keraguan dan proses yang rumit. Dengan GovChain Permit, pastikan keaslian surat izin dari Pemerintah Kota secara instan menggunakan teknologi blockchain yang transparan dan tidak dapat diubah.</p>
-      <div className="hero-buttons">
+      <div className="utama-buttons">
         <a href="#verifikasi" className="primary">Verifikasi Sekarang</a>
         <a href="#daftar" className="secondary">Daftarkan Izin</a>
       </div>
     </div>
-    <div className="hero-image">
+    <div className="utama-image">
       <img src="/images/Illustration.png" alt="Ilustrasi user dengan laptop dan blockchain" />
     </div>
   </section>
@@ -112,7 +112,7 @@ export default function App() {
     <div>
       <Header />
       <main>
-        <Hero />
+        <utama />
         <Partners />
         <WhyBlockchain />
         <Verification />

@@ -74,18 +74,18 @@ body, html {
   .hamburger { display: block; }
 }
 
-/* Hero Section */
-.hero { padding: 64px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
-.hero-text { flex: 1; text-align: center; }
-.hero-text h1 { font-size: 2.25rem; line-height: 2.5rem; color: var(--purple-700); margin-bottom: 24px; }
-.hero-text p { color: var(--gray-600); margin-bottom: 32px; line-height: 1.6; }
-.hero-buttons a { text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-weight: 600; margin: 0 8px; }
-.hero-buttons .primary { background: var(--orange-500); color: white; }
-.hero-buttons .primary:hover { background: var(--orange-600); }
-.hero-buttons .secondary { border: 2px solid var(--orange-500); color: var(--orange-500); }
-.hero-buttons .secondary:hover { background: rgba(255, 243, 233, .5); }
-.hero-image { flex: 1; text-align: center; }
-.hero-image img { max-width: 300px; width: 75%; }
+/* Utama */
+.utama { padding: 64px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+.utama-text { flex: 1; text-align: center; }
+.utama-text h1 { font-size: 2.25rem; line-height: 2.5rem; color: var(--purple-700); margin-bottom: 24px; }
+.utama-text p { color: var(--gray-600); margin-bottom: 32px; line-height: 1.6; }
+.utama-buttons a { text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-weight: 600; margin: 0 8px; }
+.utama-buttons .primary { background: var(--orange-500); color: white; }
+.utama-buttons .primary:hover { background: var(--orange-600); }
+.utama-buttons .secondary { border: 2px solid var(--orange-500); color: var(--orange-500); }
+.utama-buttons .secondary:hover { background: rgba(255, 243, 233, .5); }
+.utama-image { flex: 1; text-align: center; }
+.utama-image img { max-width: 300px; width: 75%; }
 
 /* Partners */
 .partners { background: var(--purple-700); padding: 32px 0; }
