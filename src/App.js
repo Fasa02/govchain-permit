@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import ScanQR from './ScanQR';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 const Header = () => (
   <header className="header">
@@ -71,23 +73,44 @@ const WhyBlockchain = () => (
   </section>
 );
 
-const MethodCard = ({ img, title }) => (
-  <div className="method-card">
-    <img src={img} alt={title} />
-    <h3>{title}</h3>
-  </div>
-);
-
-const Verification = () => (
-  <section className="verification" id="metode-verifikasi">
-    <div className="container">
-      <h2>Metode Verifikasi</h2>
-      <div className="methods">
-        {[{img:'/images/scan.png', title:'Scan QR'},{img:'/images/upload.png', title:'Upload'},{img:'/images/input.png', title:'Input Nomor Izin'}].map(m => <MethodCard key={m.title} {...m} />)}
-      </div>
+function MethodCard({ img, title, onClick, clickable }) {
+  return (
+    <div className={`method-card${clickable ? ' clickable' : ''}`} onClick={onClick}>
+      <img src={img} alt={title} />
+      <h3>{title}</h3>
     </div>
-  </section>
-);
+  );
+}
+
+// Verification Page
+function Verification() {
+  const navigate = useNavigate();
+  const methods = [
+    { img: '/images/scan.png', title: 'Scan QR', path: '/scan' },
+    { img: '/images/upload.png', title: 'Upload', path: null },
+    { img: '/images/input.png', title: 'Input Nomor Izin', path: null }
+  ];
+
+  return (
+    <section className="verification" id="metode-verifikasi">
+      <div className="container">
+        <h2>Metode Verifikasi</h2>
+        <div className="methods">
+          {methods.map(m => (
+            <MethodCard
+              key={m.title}
+              img={m.img}
+              title={m.title}
+              onClick={() => m.path && navigate(m.path)}
+              clickable={!!m.path}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 const Footer = () => (
   <footer className="footer">
@@ -109,15 +132,26 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <div>
+    <Router>
       <Header />
       <main>
-        <utama />
-        <Partners />
-        <WhyBlockchain />
-        <Verification />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>  {/* Home page composite */}
+                <utama />
+                <Partners />
+                <WhyBlockchain />
+                <Verification />
+              </>
+            }
+          />
+          <Route path="/scan" element={<ScanQR />} />
+          <Route path="/verifikasi" element={<Verification />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
-};
+}
