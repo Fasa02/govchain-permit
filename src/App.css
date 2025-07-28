@@ -1,3 +1,4 @@
+
 :root {
   --purple-700: #6b21a8;
   --purple-900: #4c1d95;
@@ -10,7 +11,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .container {
@@ -56,16 +57,25 @@ body, html {
 .button {
   display: inline-flex;
   align-items: center;
-  background: var(--purple-700);
+  justify-content: center;
   color: white;
-  padding: 8px 16px;
+  padding: 0;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
   transition: background .2s;
 }
 
-.button:hover { background: var(--purple-900); }
+.button:hover {
+  background: var(--purple-600);
+}
+
+.button img {
+  display: block;
+  max-height: 56px; /* sesuai tinggi yang kamu inginkan */
+  width: auto;
+}
+
 
 .hamburger { display: none; cursor: pointer; }
 
@@ -74,18 +84,18 @@ body, html {
   .hamburger { display: block; }
 }
 
-/* Utama */
-.utama { padding: 64px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
-.utama-text { flex: 1; text-align: center; }
-.utama-text h1 { font-size: 2.25rem; line-height: 2.5rem; color: var(--purple-700); margin-bottom: 24px; }
-.utama-text p { color: var(--gray-600); margin-bottom: 32px; line-height: 1.6; }
-.utama-buttons a { text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-weight: 600; margin: 0 8px; }
-.utama-buttons .primary { background: var(--orange-500); color: white; }
-.utama-buttons .primary:hover { background: var(--orange-600); }
-.utama-buttons .secondary { border: 2px solid var(--orange-500); color: var(--orange-500); }
-.utama-buttons .secondary:hover { background: rgba(255, 243, 233, .5); }
-.utama-image { flex: 1; text-align: center; }
-.utama-image img { max-width: 300px; width: 75%; }
+/* Hero */
+.Hero { padding: 64px 10% 5% 15%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+.Hero-text { flex: 1;}
+.Hero-text h1 { font-size: 2.5rem; line-height: 2.5rem; color: var(--purple-700); margin-bottom: 24px; }
+.Hero-text p { color: var(--gray-600); margin-bottom: 32px; line-height: 1.6; }
+.Hero-buttons a { text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-weight: 600; margin: 0 8px; }
+.Hero-buttons .primary { background: var(--orange-500); color: white; }
+.Hero-buttons .primary:hover { background: var(--orange-600); }
+.Hero-buttons .secondary { border: 2px solid var(--orange-500); color: var(--orange-500); }
+.Hero-buttons .secondary:hover { background: rgba(255, 243, 233, .5); }
+.Hero-image { flex: 1; text-align: center; }
+.Hero-image img { max-width: 300px; width: 75%; }
 
 /* Partners */
 .partners { background: var(--purple-700); padding: 32px 0; }
@@ -106,11 +116,12 @@ body, html {
 /* Verification */
 .verification { background: var(--purple-700); padding: 64px 0; text-align: center; }
 .verification h2 { color: white; margin-bottom: 48px; }
-.methods { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-.method-card { background: white; border-radius: 8px; padding: 32px; flex: 1; min-width: 200px; }
+.methods { display: flex; justify-content: center; }
+.method-card { background: white; border-radius: 8px; padding: 32px; min-width: 200px; max-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+.method-card.clickable:hover { box-shadow: 0 6px 10px rgba(0,0,0,0.15);}
 .method-card img { height: 64px; margin-bottom: 16px; }
 .method-card h3 { margin: 0; }
-
+.method-card p { margin-top: 12px; color: #4a5568; font-size: 0.875rem; line-height: 1.5;}
 /* Footer */
 .footer { background: var(--purple-900); color: var(--gray-300); padding: 48px 0; }
 .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; }
@@ -119,3 +130,17 @@ body, html {
 .footer-links a { color: var(--gray-300); text-decoration: none; display: block; margin-bottom: 8px; }
 .footer-links a:hover { text-decoration: underline; }
 .social-icons a img { height: 24px; margin: 0 8px; }
+
+
+/* SCAN */
+.scan-page{padding:4rem 1.5rem;background:#fff;text-align:center;}
+.scan-page h2{font-size:3.5rem;line-height:1.5;font-weight:1000;color:#78336C;margin-bottom:.75rem}
+.scan-page p{font-size:1.2rem;color:#4A5568;margin-bottom:2rem;}
+.scan-actions{display:inline-flex;gap:1rem;}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border:none;border-radius:9999px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:background-color .2s,box-shadow .2s; margin-bottom: 20%;}
+.btn-icon{width:1.25rem;height:1.25rem}
+.btn-primary{background:#FF9B10;color:#fff}
+.btn-primary:hover{background:#EA580C;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.btn-secondary{background:#FF9B10;color:#fff;}
+.btn-secondary:hover{background:#EA580C;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+

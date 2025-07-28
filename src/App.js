@@ -15,9 +15,13 @@ const Header = () => (
           <a href="#verifikasi">Verifikasi</a>
         </nav>
         <button className="button">
-          Connect Wallet
-          <svg className="icon ml-2" fill="currentColor" viewBox="0 0 20 20"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zm-5 8a5 5 0 0110 0H3z" /></svg>
+          <img
+            src="/images/connect.png"
+            alt="Connect Wallet"
+            className="h-6 w-auto"
+          />
         </button>
+
         <div className="hamburger">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
         </div>
@@ -26,17 +30,19 @@ const Header = () => (
   </header>
 );
 
-const utama = () => (
-  <section className="utama">
-    <div className="utama-text">
-      <h1>Perizinan UMKM Transparan, Akuntabel Dengan Blockchain</h1>
+const Hero = () => (
+  <section className="Hero">
+    <div className="Hero-text">
+      <h1> Perizinan UMKM<br/>
+    Transparan, Akuntabel<br/>
+    Dengan Blockchain</h1>
       <p>Ucapkan selamat tinggal pada keraguan dan proses yang rumit. Dengan GovChain Permit, pastikan keaslian surat izin dari Pemerintah Kota secara instan menggunakan teknologi blockchain yang transparan dan tidak dapat diubah.</p>
-      <div className="utama-buttons">
+      <div className="Hero-buttons">
         <a href="#verifikasi" className="primary">Verifikasi Sekarang</a>
         <a href="#daftar" className="secondary">Daftarkan Izin</a>
       </div>
     </div>
-    <div className="utama-image">
+    <div className="Hero-image">
       <img src="/images/Illustration.png" alt="Ilustrasi user dengan laptop dan blockchain" />
     </div>
   </section>
@@ -73,41 +79,39 @@ const WhyBlockchain = () => (
   </section>
 );
 
-function MethodCard({ img, title, onClick, clickable }) {
+function MethodCard({ img, title, onClick, description, clickable }) {
   return (
-    <div className={`method-card${clickable ? ' clickable' : ''}`} onClick={onClick}>
-      <img src={img} alt={title} />
-      <h3>{title}</h3>
+    <div
+      className={`method-card ${clickable ? 'clickable' : ''}`}
+      onClick={clickable ? onClick : undefined}
+      style={{ cursor: clickable ? 'pointer' : 'default' }}
+    >
+      <img src={img} alt={title} className="mb-4 h-16 w-16 mx-auto" />
+      <h3 className="text-lg font-semibold">{title}</h3>
+      {description && (
+        <p className="mt-3 text-gray-600 text-sm">
+          {description}
+        </p>
+      )}
     </div>
   );
 }
 
-// Verification Page
+
 function Verification() {
   const navigate = useNavigate();
-  const methods = [
-    { img: '/images/scan.png', title: 'Scan QR', path: '/scan' },
-    { img: '/images/upload.png', title: 'Upload', path: null },
-    { img: '/images/input.png', title: 'Input Nomor Izin', path: null }
-  ];
   return (
-    <section className="verification" id="metode-verifikasi">
+     <section className="verification" id="metode-verifikasi">
       <div className="container">
         <h2>Metode Verifikasi</h2>
-        <div className="methods">
-          {methods.map(m => (
-            m.path ? (
-              <Link key={m.title} to={m.path} className="method-card clickable">
-                <img src={m.img} alt={m.title} />
-                <h3>{m.title}</h3>
-              </Link>
-            ) : (
-              <div key={m.title} className="method-card">
-                <img src={m.img} alt={m.title} />
-                <h3>{m.title}</h3>
-              </div>
-            )
-          ))}
+        <div className="methods justify-center">
+          <MethodCard
+            img="/images/scan.png"
+            title="Scan QR"
+            description="Arahkan kamera atau unggah gambar QR code untuk verifikasi instan."
+            clickable
+            onClick={() => navigate('/scan')}
+          />
         </div>
       </div>
     </section>
@@ -143,7 +147,7 @@ export default function App() {
             path="/"
             element={
               <>  {/* Home page composite */}
-                <utama />
+                <Hero />
                 <Partners />
                 <WhyBlockchain />
                 <Verification />
