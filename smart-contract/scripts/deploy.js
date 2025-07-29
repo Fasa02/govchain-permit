@@ -1,16 +1,16 @@
+const hre = require("hardhat");
+
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  console.log("🚀 Deploying GovChain Permit Smart Contract...");
 
-  console.log("Deploying contract with account:", deployer.address);
+  const Permit = await hre.ethers.getContractFactory("Permit");
+  const permit = await Permit.deploy();
 
-  const MyNFT = await ethers.getContractFactory("MyNFT"); // Pastikan ini nama kontraknya
-  const contract = await MyNFT.deploy();
+  await permit.waitForDeployment(); // Tambahkan ini
 
-  console.log("✅ Waiting for contract to be mined...");
-  await contract.waitForDeployment(); // ini untuk Hardhat versi 2.17+ (Ethers v6)
-  
-  const address = await contract.getAddress(); // ambil address-nya
-  console.log("✅ Contract deployed to:", address);
+  const address = await permit.getAddress(); // Gunakan getAddress()
+
+  console.log(`✅ Contract deployed at: ${address}`);
 }
 
 main().catch((error) => {
