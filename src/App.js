@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ScanQR from './ScanQR';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 const Header = () => (
   <header className="header">
@@ -61,7 +61,7 @@ const FeatureCard = ({ img, title, children }) => (
   <div className="feature-card">
     <img src={img} alt={title} />
     <h3>{title}</h3>
-    <p>{children}</p>
+    <p>{children} v  </p>
   </div>
 );
 
@@ -139,14 +139,14 @@ const Footer = () => (
 
 export default function App() {
   return (
-    <Router>
+    <>
       <Header />
       <main>
         <Routes>
           <Route
             path="/"
             element={
-              <>  {/* Home page composite */}
+              <>
                 <Hero />
                 <Partners />
                 <WhyBlockchain />
@@ -154,11 +154,11 @@ export default function App() {
               </>
             }
           />
-          <Route path="/scan" element={<ScanQR />} />
+          <Route path="/scan"       element={<ScanQR />} />
           <Route path="/verifikasi" element={<Verification />} />
         </Routes>
       </main>
       <Footer />
-    </Router>
+    </>
   );
 }

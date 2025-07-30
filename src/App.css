@@ -84,6 +84,16 @@ body, html {
   .hamburger { display: block; }
 }
 
+   @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
 /* Hero */
 .Hero { padding: 64px 10% 5% 15%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
 .Hero-text { flex: 1;}
@@ -100,8 +110,8 @@ body, html {
 /* Partners */
 .partners { background: var(--purple-700); padding: 32px 0; }
 .partners h2 { color: white; text-align: center; margin-bottom: 24px; }
-.partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; }
-.partners-logos img { height: 64px; }
+.partners-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;  transform: translateX(100%); animation: scroll-left 20s linear infinite;}
+.partners-logos img { height: 48px; }
 
 /* Why Blockchain */
 .why { padding: 64px 0; text-align: center; }
@@ -143,4 +153,28 @@ body, html {
 .btn-primary:hover{background:#EA580C;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .btn-secondary{background:#FF9B10;color:#fff;}
 .btn-secondary:hover{background:#EA580C;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+
+@media (max-width: 1024px) {
+  .Hero { flex-direction: column; padding: 10%; }
+  .Hero-buttons a {padding:10px; font-weight: 500; margin: 0 8px;}
+  .container { width: 80%; padding-left: 0; padding-right: 0;}
+  .Hero-text, .Hero-image { width: 100%; }
+  .Hero-text h1 { font-size: 2rem; }
+  .Hero-image img {padding-top: 10%;}
+  .partners-logos img { height: 32px; }
+  .features { flex-direction: column; }
+  .feature-card { max-width: 100%; }
+  .methods { flex-wrap: wrap; }
+  .method-card { margin: 16px auto; }
+  .footer-container { flex-direction: column; text-align: center; }
+}
+@media (max-width: 640px) {
+  .navbar-content { padding: 8px 16px; gap: 16px; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .button { display: none; }
+  .Hero-text h1 { font-size: 1.75rem; }
+  .scan-page h2 { font-size: 2rem; }
+  .scan-actions { flex-direction: column; }
+}
 
