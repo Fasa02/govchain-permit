@@ -27,8 +27,9 @@ export default function ScanQR() {
   const handleFile = e => {
     const file = e.target.files[0];
     if (!file) return;
-    Html5Qrcode.scanFile(file, true)
-      .then(decoded => setQrData(decoded))
+    Html5Qrcode
+      .scanFileV2({ file, qrbox: 250 })
+     .then(decoded => setQrData(decoded))
       .catch(() => alert('QR tidak terbaca'));
   };
 
