@@ -35,7 +35,7 @@ const hashAndUpload = async (req, res) => {
       message: 'Hash uploaded to IPFS.',
       hash,
       ipfsCID: cid,
-      gatewayURL: `https://ipfs.io/ipfs/${cid}`
+      gatewayURL: `http://localhost:8081/ipfs/${cid}`
     });
   } catch (err) {
     console.error('❌ Error:', err);
